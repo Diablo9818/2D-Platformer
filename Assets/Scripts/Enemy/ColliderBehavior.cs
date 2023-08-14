@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
+
 public class ColliderBehavior : MonoBehaviour
 {
     [SerializeField] private List<Collider2D> _ignoredColliders;

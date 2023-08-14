@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
+
 public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] Rigidbody2D _rigidbody;
@@ -51,12 +54,12 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("LeftPoint"))
+        if (collision.GetComponent<LeftBorder>())
         {
             _direction = 1;
             transform.Rotate(Vector3.up, 180.0f);
         }
-        else if (collision.CompareTag("RightPoint"))
+        else if (collision.GetComponent<RightBorder>())
         {
             _direction = -1;
             transform.Rotate(Vector3.down, 180.0f);

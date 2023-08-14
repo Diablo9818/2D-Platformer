@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7685027697500350571}
   - component: {fileID: 7685027697500350568}
   - component: {fileID: 7685027697500350569}
+  - component: {fileID: 4518996345685197317}
   m_Layer: 0
   m_Name: leftPoint
   m_TagString: LeftPoint
@@ -107,6 +108,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ignoredColliders:
   - {fileID: 7685027697520416145}
+--- !u!114 &4518996345685197317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685027697500350570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c3a50aa7c61924895542c837791f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7685027697520416150
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +318,7 @@ GameObject:
   - component: {fileID: 7685027698019360937}
   - component: {fileID: 7685027698019360950}
   - component: {fileID: 7685027698019360951}
+  - component: {fileID: 3490352092921767369}
   m_Layer: 0
   m_Name: rightPoint
   m_TagString: RightPoint
@@ -367,3 +381,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ignoredColliders:
   - {fileID: 7685027697520416145}
+--- !u!114 &3490352092921767369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685027698019360936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ba62ba6236dcc4599b42a32ddc7731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

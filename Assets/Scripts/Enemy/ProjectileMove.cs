@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody))]
+
 public class ProjectileMove : MonoBehaviour
 {
     [SerializeField] float _speed;
