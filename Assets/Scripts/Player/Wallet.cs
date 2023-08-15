@@ -13,6 +13,5 @@ public class Wallet : MonoBehaviour
             return;
 
         _money += amount;
-        Debug.Log(_money);
     }
 }

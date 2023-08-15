@@ -6,28 +6,27 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private int amount = 1;
-    private Animator animator;
-
     const string COIN_IDLE = "Idle";
+
+    [SerializeField] private int _amount = 1;
+
+    private Animator _animator;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void Start()
     {
-        animator.Play(COIN_IDLE);
+        _animator.Play(COIN_IDLE);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Wallet wallet = collision.GetComponent<Wallet>();
-
-        if (wallet != null)
+        if (collision.TryGetComponent(out Wallet wallet))
         {
-            wallet.AddMoney(amount);
+            wallet.AddMoney(_amount);
             Destroy(gameObject);
         }
     }

@@ -1,12 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovementHandler : MonoBehaviour
 {
+    const string PLAYER_IDLE = "Idle";
+    const string PLAYER_RUN = "Run";
+    const string PLAYER_JUMP = "Jump";
+
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
     [SerializeField] private int _maxJumps = 2;
@@ -17,10 +21,6 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private string _currentState;
     private bool _isJumping;
-
-    const string PLAYER_IDLE = "Idle";
-    const string PLAYER_RUN = "Run";
-    const string PLAYER_JUMP = "Jump";
 
     private void Awake()
     {

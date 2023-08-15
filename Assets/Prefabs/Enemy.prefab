@@ -131,10 +131,11 @@ GameObject:
   - component: {fileID: 7685027697520416146}
   - component: {fileID: 7685027697520416149}
   - component: {fileID: 7685027697520416148}
-  - component: {fileID: 7685027697520416144}
   - component: {fileID: 7685027697520416145}
   - component: {fileID: 7685027697520416158}
   - component: {fileID: 7685027697520416159}
+  - component: {fileID: 7876801005979601301}
+  - component: {fileID: 6048428439240570099}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -230,21 +231,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7685027697520416144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685027697520416150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa1cb8332fe58d4b93870bcea01f6f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 0}
-  _moveSpeed: 2
-  _projectile: {fileID: 297416345, guid: 31b6a649e57c6d44e8349479af2c0888, type: 3}
 --- !u!61 &7685027697520416145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -307,6 +293,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7876801005979601301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685027697520416150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3faab2ac7d3184c9839e2b050ed85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectile: {fileID: 297416345, guid: 31b6a649e57c6d44e8349479af2c0888, type: 3}
+--- !u!114 &6048428439240570099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685027697520416150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa1cb8332fe58d4b93870bcea01f6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 2
 --- !u!1 &7685027698019360936
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 
 public class ProjectileMove : MonoBehaviour
 {
     [SerializeField] float _speed;
+    [SerializeField] private float _damageAmount;
+
     private Rigidbody2D _rigidbody2D;
-    [SerializeField] private float damageAmount;
+    private float _timeToDestroy = 2f;
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class ProjectileMove : MonoBehaviour
     }
 
 
-    void Update()
+    private void Update()
     {
         Move();
     }
@@ -29,7 +31,7 @@ public class ProjectileMove : MonoBehaviour
 
         if(playerHealth != null )
         {
-            playerHealth.TakeDamage(damageAmount);
+            playerHealth.TakeDamage(_damageAmount);
             Destroy(gameObject);
         }
     }
@@ -37,12 +39,12 @@ public class ProjectileMove : MonoBehaviour
     private void Move()
     {
         _rigidbody2D.velocity = transform.right * _speed;
-        StartCoroutine(Die());
+        StartCoroutine(Destroy());
     }
 
-    IEnumerator Die()
+    private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(_timeToDestroy);
         Destroy(gameObject);
     }
 }

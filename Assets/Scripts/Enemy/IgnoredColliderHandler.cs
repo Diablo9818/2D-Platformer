@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 
-public class ColliderBehavior : MonoBehaviour
+public class IgnoredColliderHandler : MonoBehaviour
 {
     [SerializeField] private List<Collider2D> _ignoredColliders;
     private Collider2D _collider;
@@ -14,7 +14,7 @@ public class ColliderBehavior : MonoBehaviour
         _collider = GetComponent<Collider2D>();
     }
 
-    void Start()
+    private void Start()
     {
         foreach (var collider in _ignoredColliders)
         {

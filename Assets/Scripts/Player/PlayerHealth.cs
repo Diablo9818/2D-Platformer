@@ -7,13 +7,14 @@ using UnityEngine;
 
 public class PlayerHealth: MonoBehaviour
 {
-   [SerializeField] private float currentHealth;
-   [SerializeField] private float maxHealth;
-    [SerializeField] private Animator _animator;
-    private string _currentState;
-
     const string PLAYER_HURT = "Hurt";
     const string PLAYER_IDLE = "Idle";
+
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private Animator _animator;
+
+    private string _currentState;
 
     private void Awake()
     {
