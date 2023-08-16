@@ -12,12 +12,13 @@ public class ProjectileMove : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private float _timeToDestroy = 2f;
+    private WaitForSeconds _waitToDestroy;
 
     private void Awake()
     {
+        _waitToDestroy = new WaitForSeconds(_timeToDestroy);
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
 
     private void Update()
     {
@@ -44,7 +45,7 @@ public class ProjectileMove : MonoBehaviour
 
     private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(_timeToDestroy);
+        yield return _waitToDestroy;
         Destroy(gameObject);
     }
 }

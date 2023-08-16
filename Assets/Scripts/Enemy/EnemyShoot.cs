@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+[RequireComponent(typeof(EnemyMove))]
+
 public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] ProjectileMove _projectile;

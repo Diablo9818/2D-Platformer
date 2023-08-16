@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    const string ENEMY_RUN = "Run";
-    const string ENEMY_IDLE = "Idle";
+    const string EnemyRun = "Run";
+    const string EnemyIdle = "Idle";
 
     [SerializeField] float _moveSpeed;
 
@@ -35,7 +35,7 @@ public class EnemyMove : MonoBehaviour
         }
         else
         {
-            ChangeAnimationState(ENEMY_IDLE);
+            ChangeAnimationState(EnemyIdle);
         }
     }
 
@@ -55,7 +55,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Move()
     {
-        ChangeAnimationState(ENEMY_RUN);
+        ChangeAnimationState(EnemyRun);
         _rigidbody.velocity = new Vector2(Direction * _moveSpeed, _rigidbody.velocity.y);
     }
 

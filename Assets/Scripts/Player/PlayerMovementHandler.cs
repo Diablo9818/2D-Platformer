@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class PlayerMovementHandler : MonoBehaviour
 {
-    const string PLAYER_IDLE = "Idle";
-    const string PLAYER_RUN = "Run";
-    const string PLAYER_JUMP = "Jump";
+    const string PlayerIdle = "Idle";
+    const string PlayerRun = "Run";
+    const string PlayerJump = "Jump";
 
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
@@ -64,11 +64,11 @@ public class PlayerMovementHandler : MonoBehaviour
 
         if (moveInput != 0 && _isJumping == false)
         {
-            ChangeAnimationState(PLAYER_RUN);
+            ChangeAnimationState(PlayerRun);
         }
         else
         {
-            ChangeAnimationState(PLAYER_IDLE);
+            ChangeAnimationState(PlayerIdle);
         }
 
         _rigidbody.velocity = new Vector2(moveInput * _moveSpeed, _rigidbody.velocity.y);
@@ -76,7 +76,7 @@ public class PlayerMovementHandler : MonoBehaviour
 
     private void Jump()
     {
-        ChangeAnimationState(PLAYER_JUMP);
+        ChangeAnimationState(PlayerJump);
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0f);
         _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         _jumpCount++;

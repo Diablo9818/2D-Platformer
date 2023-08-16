@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    const string COIN_IDLE = "Idle";
+    const string Coin_Idle = "Idle";
 
     [SerializeField] private int _amount = 1;
 
@@ -19,7 +19,7 @@ public class Coin : MonoBehaviour
 
     private void Start()
     {
-        _animator.Play(COIN_IDLE);
+        _animator.Play(Coin_Idle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

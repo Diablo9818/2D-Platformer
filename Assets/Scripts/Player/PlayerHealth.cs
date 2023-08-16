@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class PlayerHealth: MonoBehaviour
 {
-    const string PLAYER_HURT = "Hurt";
-    const string PLAYER_IDLE = "Idle";
+    const string PlayerHurt = "Hurt";
+    const string PlayerIdle = "Idle";
 
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
@@ -43,9 +43,9 @@ public class PlayerHealth: MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        ChangeAnimationState(PLAYER_HURT);
+        ChangeAnimationState(PlayerHurt);
         currentHealth -= damageAmount;
-        ChangeAnimationState(PLAYER_IDLE);
+        ChangeAnimationState(PlayerIdle);
     }
 
     private void Die()
