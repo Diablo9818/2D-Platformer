@@ -3,7 +3,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(EnemyShoot))]
 
 public class EnemyMove : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] float _moveSpeed;
 
     private Rigidbody2D _rigidbody;
-    private EnemyShoot _enemyShoot;
     private Animator _animator;
     private string _currentState;
 
@@ -23,20 +21,7 @@ public class EnemyMove : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _enemyShoot = GetComponent<EnemyShoot>();
         Direction = 1;
-    }
-
-    private void Update()
-    {
-        if (!_enemyShoot.IsTargetExist())
-        {
-            Move();
-        }
-        else
-        {
-            ChangeAnimationState(EnemyIdle);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,22 +29,40 @@ public class EnemyMove : MonoBehaviour
         if (collision.GetComponent<LeftBorder>())
         {
             Direction = 1;
+            if(transform.rotation.eulerAngles.y != 0)
             transform.Rotate(Vector3.up, 180.0f);
+
         }
         else if (collision.GetComponent<RightBorder>())
         {
             Direction = -1;
-            transform.Rotate(Vector3.down, 180.0f);
+            
+            if(transform.rotation.eulerAngles.y != -180)
+            {
+                transform.Rotate(Vector3.down, 180.0f);
+            }
         }
     }
 
-    private void Move()
+    public void Move()
     {
         ChangeAnimationState(EnemyRun);
         _rigidbody.velocity = new Vector2(Direction * _moveSpeed, _rigidbody.velocity.y);
     }
+    
+    public void MoveToTarget(Transform target)
+    {
+        if (target != null)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
 
-    private void ChangeAnimationState(string newState)
+            Vector3 moveVelocity = direction * _moveSpeed*2;
+
+            _rigidbody.velocity = new Vector3(moveVelocity.x, _rigidbody.velocity.y);
+        }
+    }
+
+    public void ChangeAnimationState(string newState)
     {
         if (_currentState == newState)
         {
