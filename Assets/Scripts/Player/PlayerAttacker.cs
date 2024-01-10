@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerAttacker : MonoBehaviour
 {
-    [SerializeField] private float _damage;
+    [SerializeField] PlayerProjectileMover _projectile;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if(collision.TryGetComponent(out EnemyHealth enemyHealth))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            enemyHealth.TakeDamage(_damage);
+            Shoot();
         }
+    }
+    private void Shoot()
+    {
+        Instantiate(_projectile, transform.position, transform.rotation);
     }
 }

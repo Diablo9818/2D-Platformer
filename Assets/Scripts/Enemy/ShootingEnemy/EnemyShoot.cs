@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyShoot : MonoBehaviour
 {
-    [SerializeField] ProjectileMove _projectile;
+    [SerializeField] EnemyProjectileMover _projectile;
 
     private EnemyMove _enemyMove;
     private PlayerMovementHandler _target;

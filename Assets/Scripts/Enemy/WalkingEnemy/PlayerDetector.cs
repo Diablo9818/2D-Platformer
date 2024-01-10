@@ -30,13 +30,11 @@ public class PlayerDetector : MonoBehaviour
             {
                 Quaternion rotation = Quaternion.Euler(0, 0, 0);
                 _enemyMove.transform.rotation = rotation;
-                Debug.Log(1);
             }
             else
             {
                 Quaternion rotation = Quaternion.Euler(0, 180, 0);
                 _enemyMove.transform.rotation = rotation;
-                Debug.Log(0);
             }
         }
     }

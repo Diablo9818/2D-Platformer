@@ -55,11 +55,13 @@ public class PlayerMovementHandler : MonoBehaviour
 
         if (moveInput > 0)
         {
-            _spriteRenderer.flipX = false;
+            Quaternion rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = rotation;
         }
         else if (moveInput < 0)
         {
-            _spriteRenderer.flipX = true;
+            Quaternion rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = rotation;
         }
 
         if (moveInput != 0 && _isJumping == false)
